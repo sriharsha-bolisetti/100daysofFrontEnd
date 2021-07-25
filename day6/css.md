@@ -1,0 +1,21 @@
+- Third layout mode: `positioned layout`
+- Defining feature of positioned layout is that items can `overlap`. With block and inline, the browser tries very hard to make sure that multiple elements never occupy the same pixels. 
+- With positioned layout, we can break out of the box.
+- By default, every element comes with `position: static`
+- any other position value, you can use `top, bottom, left and right`
+- `position doesn't impact layout`
+- What if we want an element to ignore its natural position? What if we want an element to stick to a specific spot, regardless of where it sits in the DOM order? In these cases, `absolute positioning` is our friend.
+- Absolutely-positioned elements are `adjusted based on their container`, not based on their in-flow position.
+- When we set something to be `position: absolute`, we pull it out of the flow.
+- When the browser is laying out elements, it effectively pretends that absolutely-positioned elements don't exist. They're `incorporeal` - you can stick your hand right through them, like a hologram or a ghost.
+- Being able to take elements out-of-flow is super handy. Any time you want an element to be `floating above` the content, like a tooltip or a dropdown or a modal, absolute positioning is your friend.
+- `single-axis absolute positioning`
+- By explicitly setting a `left` value, but omitting a `top/bottom` value, the element `keeps its in-flow position for the vertical axis`. It lets us `inherit` a sort of context from the HTML structure, without needing to be bound by it.
+- We're absolutely-positioning it horizontally, but keeping it in its relative vertical position.
+- `Absolute Centering`
+- `Containing Blocks`
+- Only non-static elements can constrain absolutely-positioned children.
+- Here's how the absolute positioning algorithm works - When deciding where to place an absolutely-positioned element, it crawls up through the tree, looking for a non-static ancestor
+1. If it finds one, the element becomes a `containing block`, and the absolute child will be anchored to that element.
+2. If it doesn't find one, it'll be anchored based on the `initial containing block` -> a box the size of the viewport at the very top of the document.
+- Absolute positioned elements ignore the padding of the containing block. The way to think about this is - padding is used in flow-layout calculations, and absolute elements are taken out-of-flow. Those rules don't apply.
