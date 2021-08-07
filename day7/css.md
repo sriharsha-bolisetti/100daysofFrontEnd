@@ -1,0 +1,19 @@
+- Stacking Contexts
+- How does the browser decide which element to render "on top" when elements overlap?
+- Depends on layout mode!
+- In flow layout, elements don't overlap much, but we can force it with negative margin.
+- In flow layout, background colors and borders are truly meant to be in the background. The content will float on top. That's why the letter A shows up on top of the pink box.
+- The truth is that Flow layout isn't really built with layering in mind. Most of the time, when we want to layer elements, we'll want to use positioned layout.
+- `Positioned elements will always render on top of non-positioned ones`
+- We can think of it as a two-stage process: first, all of the statically-positioned elements are rendered (everything using Flow, flexbox, grid...), next, all of the positioned elements are rendered on top (relative, absolute, fixed, sticky)
+- z-index
+- If we want the layered order to be different from the DOM order, we can use the `z-index` property to manually reorder them.
+- `z-index only works with positioned elements.` It will have no effect on an element being rendered in Flow layout.
+- The default value of the `z-index` property is `auto`, which is equivalent to the number `0`
+- Therefore, any value greater than 0 can be used to "promote" an element to sit in front of its siblings.
+- z-index values are not global. 
+- when position isn't static and set a z-index -> element will have a stacking context.
+- `isolated stacking context`
+- Isolation Property
+- `isolation: isolate`
+- `isolation` property does precisely 1 thing: `creates a stacking context` 
